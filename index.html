@@ -25,6 +25,16 @@ log = ChromeSamples.log;
 
 if (!("NDEFReader" in window))
   ChromeSamples.setStatus("Web NFC is not available. Use Chrome on Android.");
+
+log("User clicked write button");
+
+try {
+  const ndef = new NDEFReader();
+  await ndef.write("{'token':'123','expiry':'19902124'}");
+  log("> Message written");
+} catch (error) {
+  log("Argh! " + error);
+}  
 </script>
 
 {% include js_snippet.html filename='index.js' %}
