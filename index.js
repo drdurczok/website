@@ -19,6 +19,14 @@ scanButton.addEventListener("click", async () => {
   }
 });
 
+function a2utf16(string) {
+  let result = new Uint16Array(string.length);
+  for (let i = 0; i < string.length; i++) {
+    result[i] = string.codePointAt(i);
+  }
+  return result;
+}
+
 writeButton.addEventListener("click", async () => {
   log("User clicked write button");
 
