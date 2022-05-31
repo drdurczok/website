@@ -5,8 +5,8 @@ Reception
 
 <button id="acceptButton">Accept Access</button>
 
-{% include output_helper.html initial_output_content=initial_output_content %}
-
 <script>
-log = ChromeSamples.log;
+acceptButton.addEventListener("click", async () => {
+  window.confirm("Are you sure about that?");
+});
 </script>
