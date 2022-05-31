@@ -24,7 +24,13 @@ writeButton.addEventListener("click", async () => {
 
   try {
     const ndef = new NDEFReader();
-    await ndef.write("{'token':'12345', 'expiry':'20220605'}");
+    const textRecord = {
+      recordType: "text",
+      lang: "en",
+      encoding: "utf-16",
+      data: a2utf16("{'token':'12345', 'expiry':'20220605'}")
+    };
+    await ndef.write({ records: [textRecord] });
     log("> Message written");
   } catch (error) {
     log("Argh! " + error);
