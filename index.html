@@ -27,8 +27,11 @@ if (!("NDEFReader" in window))
   ChromeSamples.setStatus("Web NFC is not available. Use Chrome on Android.");
 
 log("User clicked write button");
-
-
+const urlParams = new URLSearchParams(window.location.search);
+const token = urlParams.get('token');
+const expiry = urlParams.get('expiry')
+log("token: " + token);
+log("expiry: " + expiry);
 </script>
 
 {% include js_snippet.html filename='index.js' %}
