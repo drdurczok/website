@@ -1,13 +1,15 @@
-<h3>Background</h3>
-<p>
-Reception
-</p>
+<h3>New Visitor Verification</h3>
 
-<button id="acceptButton">Accept Access</button>
 
 <script>
+const name = urlParams.get('name');
+
+log(name + " would like to access the premise. Please press the button below to accept.");
+
 acceptButton.addEventListener("click", async () => {
   window.confirm("Are you sure about that?");
 
 });
 </script>
+
+<button id="acceptButton">Accept Access</button>
