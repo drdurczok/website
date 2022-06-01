@@ -1,17 +1,34 @@
+<head>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
 <h3>New Visitor Verification</h3>
-
 <p id="demo"></p>
-
-<script>
-const urlParams = new URLSearchParams(window.location.search);
-const name = urlParams.get('name');
-
-document.getElementById("demo").innerHTML = name + " would like to access the premise. Please press the button below to accept.";
-
-acceptButton.addEventListener("click", async () => {
-  window.confirm("Are you sure about that?");
-
-});
+<button id="acceptButton" onclick="sendEmail()">Accept Access</button>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.0/dist/email.min.js">
 </script>
+<script type="text/javascript">
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
 
-<button id="acceptButton">Accept Access</button>
+    document.getElementById("demo").innerHTML = name + " would like to access the premise. Please press the button below to accept.";
+
+    function sendEmail() {
+        const params = new URLSearchParams(location.search);
+        const name = params.get('name')
+        const email = params.get('email')
+        emailjs.init("D5i86Hiny51ZhCnNL"); //please encrypted user id for malicious attacks
+        //set the parameter as per you template parameter[https://dashboard.emailjs.com/templates]        var templateParams = {
+            from_name: 'reception.eac.stellar@gmail.com',
+            reply_to: email,
+            body: 'https://drdurczok.github.io/website?name=' + name + '&access=0'
+        };
+        emailjs.send('service_ski8b89', 'template_h0t2byc', templateParams)
+            .then(function (response) {
+                console.log('SUCCESS!', response.status, response.text);
+            }, function (error) {
+                console.log('FAILED...', error);
+            });
+    }
+</script>
