@@ -1,7 +1,10 @@
 <h3>New Visitor Verification</h3>
 
+{% include output_helper.html initial_output_content=initial_output_content %}
 
 <script>
+log = ChromeSamples.log;
+
 const name = urlParams.get('name');
 
 log(name + " would like to access the premise. Please press the button below to accept.");
