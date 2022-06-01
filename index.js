@@ -23,7 +23,7 @@ writeButton.addEventListener("click", async () => {
   log("User clicked write bsutton");
   const urlParams = new URLSearchParams(window.location.search);
 
-const access = urlParams.get('accesslevel');
+const access = urlParams.get('access');
 const name = urlParams.get('name');
 
 log("name: " + name);
