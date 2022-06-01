@@ -3,6 +3,7 @@
 <p id="demo"></p>
 
 <script>
+const urlParams = new URLSearchParams(window.location.search);
 const name = urlParams.get('name');
 
 document.getElementById("demo").innerHTML = name + " would like to access the premise. Please press the button below to accept.";
