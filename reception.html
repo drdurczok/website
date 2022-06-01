@@ -1,13 +1,11 @@
 <h3>New Visitor Verification</h3>
 
-{% include output_helper.html initial_output_content=initial_output_content %}
+<p id="demo"></p>
 
 <script>
-log = ChromeSamples.log;
-
 const name = urlParams.get('name');
 
-log(name + " would like to access the premise. Please press the button below to accept.");
+document.getElementById("demo").innerHTML = name + " would like to access the premise. Please press the button below to accept.";
 
 acceptButton.addEventListener("click", async () => {
   window.confirm("Are you sure about that?");
