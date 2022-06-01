@@ -9,11 +9,6 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.0/dist/email.min.js">
 </script>
 <script type="text/javascript">
-    const urlParams = new URLSearchParams(window.location.search);
-    const name = urlParams.get('name');
-
-    document.getElementById("demo").innerHTML = name + " would like to access the premise. Please press the button below to accept.";
-
     function sendEmail() {
         const params = new URLSearchParams(location.search);
         const name = params.get('name')
