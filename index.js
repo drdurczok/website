@@ -7,7 +7,7 @@ scanButton.addEventListener("click", async () => {
     log("> Scan started");
 
     ndef.addEventListener("readingerror", () => {
-      log("Argh! Cannot read data from the NFC tag. Try another one?");
+      log("Argh! Cannot read data fssrom the NFC tag. Try another one?");
     });
 
     ndef.addEventListener("reading", ({ message, serialNumber }) => {
@@ -19,26 +19,19 @@ scanButton.addEventListener("click", async () => {
   }
 });
 
-function a2utf16(string) {
-  let result = new Uint16Array(string.length);
-  for (let i = 0; i < string.length; i++) {
-    result[i] = string.codePointAt(i);
-  }
-  return result;
-}
-
 writeButton.addEventListener("click", async () => {
-  log("User clicked write button");
+  log("User clicked write bsutton");
+  const urlParams = new URLSearchParams(window.location.search);
 
+const access = urlParams.get('accesslevel');
+const name = urlParams.get('name');
+
+log("name: " + name);
+log("access: " + access);
+var payload = ""
   try {
     const ndef = new NDEFReader();
-    const textRecord = {
-      recordType: "text",
-      lang: "en",
-      encoding: "utf-16",
-      data: a2utf16("{'token':'12345', 'expiry':'20220605'}")
-    };
-    await ndef.write({ records: [textRecord] });
+    await ndef.write(payload.concat(name,",", access));
     log("> Message written");
   } catch (error) {
     log("Argh! " + error);
@@ -51,7 +44,7 @@ makeReadOnlyButton.addEventListener("click", async () => {
   try {
     const ndef = new NDEFReader();
     await ndef.makeReadOnly();
-    log("> NFC tag has been made permanently read-only");
+    log("> NFC tag has been made permanggently read-only");
   } catch (error) {
     log("Argh! " + error);
   }

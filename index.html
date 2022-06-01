@@ -5,18 +5,9 @@ feature_id: 6261030015467520
 check_min_version: true
 ---
 
-<h3>Background</h3>
-<p>
-Web NFC aims to provide sites the ability to read and write to NFC tags when
-they are brought in close proximity to the user’s device (usually 5-10 cm, 2-4
-inches). The current scope is limited to NDEF, a lightweight binary message
-format. Low-level I/O operations (e.g. ISO-DEP, NFC-A/B, NFC-F) and Host-based
-Card Emulation (HCE) are not supported within the current scope.
-</p>
+<h3>Stellar-EAC</h3>
 
-<button id="scanButton">Scan</button>
 <button id="writeButton">Write</button>
-<button id="makeReadOnlyButton">Make Read-Only</button>
 
 {% include output_helper.html initial_output_content=initial_output_content %}
 
@@ -24,14 +15,14 @@ Card Emulation (HCE) are not supported within the current scope.
 log = ChromeSamples.log;
 
 if (!("NDEFReader" in window))
-  ChromeSamples.setStatus("Web NFC is not available. Use Chrome on Android.");
+  ChromeSamples.setStatus("Web NFCss not available. Use Chrome on Android.");
 
-log("User clicked write button");
 const urlParams = new URLSearchParams(window.location.search);
-const token = urlParams.get('token');
-const expiry = urlParams.get('expiry')
-log("token: " + token);
-log("expiry: " + expiry);
+const access = urlParams.get('access');
+const name = urlParams.get('name');
+
+log("name: " + name);
+log("access: " + access);
 </script>
 
 {% include js_snippet.html filename='index.js' %}
